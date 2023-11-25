@@ -3,43 +3,79 @@
 
 # Diagrama
 
-+-------------------------------+   +-------------------------------------------+
-|      Main                     |   |   ModelTermo                              |
-+-------------------------------+   +-------------------------------------------+
-| - model: ModelTermo           |   | - palavraSorteada: String                 |
-| - ctrl: Controller            |   | - palavraArray: String[]                  |
-| - view: JFrameTermo           |   | - letraDigitada: String                   |  
-+-------------------------------+   | - indiceLetra: int                        |
-| + main(args: String[]): void  |   | - isPalavraCorreta: int                   |  
-+-------------------------------+   | + ModelTermo()                            |
-                                    | + sorteiaPalavra(): String                |
-                                    | + verificaPalavra(linha: int): void       |
-                                    | + verificaFinalizado(linha: int): boolean |
-+-------------------------------+   | + isGanhou(): boolean                     |
-|   JFrameTermo                 |   | + temCaractereRepetido(): boolean         |
-+-------------------------------+   +-------------------------------------------+
-| - panelBarra: JPanel          |   +-------------------------------------------+
-| - panelCampo: JPanel          |   |   Controller                               |
-| - panelBotao: JPanel          |   +--------------------------------------------+
-| - labelNomeBarra: JLabel      |   | - model: ModelTermo                        |
-| - btnEnter: JButton           |   +--------------------------------------------+
-| - matriz: JTextFieldTermo[][] |   | + Controller(model: ModelTermo)            |
-| - ctrl: Controller            |   | + verificaPalavra(linha: int): void        |
-| - espacoLateral: int          |   | + verificaFinalizado(linha: int): boolean  |
-| - fonte: Font                 |   | + isGanhou(): boolean                      |
-| - fonteBtn: Font              |   +--------------------------------------------+
++-------------------------------------------+
+|   ModelTermo                              |
++-------------------------------------------+
+| - palavraSorteada: String                 |
+| - palavraArray: String[]                  |
+| - letraDigitada: String                   |  
+| - indiceLetra: int                        |
+| - isPalavraCorreta: int                   |  
+| + ModelTermo()                            |
+| + sorteiaPalavra(): String                |
++ verificaPalavra(linha: int): void         |
++ verificaFinalizado(linha: int): boolean   |
+| + isGanhou(): boolean                     |
+| + temCaractereRepetido(): boolean         |
++-------------------------------------------+
+
+
+
+
++-------------------------------+
+|      Main                     |
++-------------------------------+
+| - model: ModelTermo           |
+| - ctrl: Controller            |
+| - view: JFrameTermo           |  
++-------------------------------+
+| + main(args: String[]): void  |  
++-------------------------------+
+
++-------------------------------+
+|   JFrameTermo                 |
++-------------------------------+
+| - panelBarra: JPanel          |
+| - panelCampo: JPanel          |
+| - panelBotao: JPanel          |
+| - labelNomeBarra: JLabel      |
+| - btnEnter: JButton           |
+| - matriz: JTextFieldTermo[][] |
+| - ctrl: Controller            |
+| - espacoLateral: int          |
+| - fonte: Font                 |
+| - fonteBtn: Font              |
 | - corFundo: Color             |
 | - corBtn: Color               |
 | - contadorLinha: int          |
 | - teclaBackSpacePress: boolean|
 +-------------------------------+
 
-+-------------------------------------------+       +--------------------------------------+
-| JTextFieldTermo                           |       | FiltrarPalavrasPorQuantidadeDeLetras |
-+-------------------------------------------+       +--------------------------------------+
-| - corFundo: Color                         |       | - nomeArquivoEntrada: String         |
-| - corBordaPadrao: Color                   |       | - nomeArquivoSaida: String           |
-| - corBordaFoco: Color                     |       +--------------------------------------+
++-------------------------------------------+
+|   Controller                               |
++--------------------------------------------+
+| - model: ModelTermo                        |
++--------------------------------------------+
+| + Controller(model: ModelTermo)            |
+| + verificaPalavra(linha: int): void        |
+| + verificaFinalizado(linha: int): boolean  |
+| + isGanhou(): boolean                      |
++--------------------------------------------+
+
+
++--------------------------------------+
+| FiltrarPalavrasPorQuantidadeDeLetras |
++--------------------------------------+
+| - nomeArquivoEntrada: String         |
+| - nomeArquivoSaida: String           |
++--------------------------------------+
+
++-------------------------------------------+
+| JTextFieldTermo                           |
++-------------------------------------------+
+| - corFundo: Color                         |
+| - corBordaPadrao: Color                   |
+| - corBordaFoco: Color                     |
 | - corCerta: Color                         |
 | - corLugarErrado: Color                   |
 | - corErrado: Color                        |
